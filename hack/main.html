@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Folk Story Animator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fffaf4;
+      color: #333;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      text-align: center;
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #f39c12;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #e85d04;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .home textarea,
+    .home input[type="file"] {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .home button {
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      background: #e85d04;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .home button:hover {
+      background: #d44a00;
+    }
+
+    #generateVideoBtn {
+      display: none;
+      background-color: #1e90ff;
+      margin-top: 1rem;
+    }
+
+    #generateVideoBtn:hover {
+      background-color: #187bcd;
+    }
+
+    .features .feature-block {
+      margin-bottom: 2rem;
+    }
+
+    .features .feature-block h3 {
+      font-size: 1.5rem;
+      color: #d44a00;
+      margin-bottom: 0.5rem;
+    }
+
+    .features .feature-block p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .contact a {
+      color: #e85d04;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      background: #333;
+      color: white;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    .back-btn {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .back-btn button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background: #999;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-btn button:hover {
+      background: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Folk Story Animator</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HOME Section -->
+  <section id="home" class="home">
+    <h2>Submit Your Story</h2>
+    <p>Type your folk story below or upload audio, images, or related files:</p>
+    <textarea id="storyText" rows="6" placeholder="Type your folk story here..."></textarea>
+    <br>
+    <input id="storyFiles" type="file" multiple accept="image/*,audio/*,video/*,.pdf,.doc,.docx">
+    <br>
+    <button onclick="submitStory()">Submit Story</button>
+    <br>
+    <button id="generateVideoBtn" onclick="generateVideo()">🎬 Generate Video</button>
+
+    <div class="back-btn">
+      <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+  </section>
+
+  <!-- FEATURES Section -->
+  <section id="features" class="features">
+    <h2>Key Features</h2>
+
+    <div class="feature-block">
+      <h3>Regional Dialects</h3>
+      <p>Preserve the authenticity of folk stories with local dialect voiceovers.</p>
+    </div>
+
+    <div class="feature-block">
+      <h3>Local Art Styles</h3>
+      <p>Capture the essence of regional art and culture in animations.</p>
+    </div>
+
+    <div class="feature-block">
+      <h3>Story Animation</h3>
+      <p>Convert text-based stories into vibrant short films.</p>
+    </div>
+
+    <div class="back-btn">
+      <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+  </section>
+
+  <!-- ABOUT Section -->
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      We aim to preserve cultural heritage by transforming regional folk stories into animated masterpieces. Our tool focuses on maintaining local dialects, traditional art styles, and cultural nuances—bringing the heart of folk culture into the digital age and making them accessible and engaging for the modern generation.
+    </p>
+
+    <div class="back-btn">
+      <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+  </section>
+
+  <!-- CONTACT Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>📞 Phone: 9392858821</p>
+    <p>📞 Phone: 7993344027</p>
+    <p>✉ Email: <a href="mailto:aiimaginars@gmail.com">aiimaginars@gmail.com</a></p>
+
+    <div class="back-btn">
+      <button onclick="goBack()">⬅ Back to Dashboard</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Folk Story Animator. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function submitStory() {
+      const story = document.getElementById('storyText').value.trim();
+      const files = document.getElementById('storyFiles').files;
+
+      if (!story && files.length === 0) {
+        alert("Please enter a story or upload files.");
+        return;
+      }
+
+      alert("Story Submitted! Thank you.");
+      document.getElementById("generateVideoBtn").style.display = "inline-block";
+    }
+
+    function generateVideo() {
+      alert("🎬 Generating your animated video...\n(This is just a simulation – backend integration goes here.)");
+    }
+
+    function goBack() {
+      window.location.href = "main.html"; // Update this if your dashboard page is differently named
+    }
+  </script>
+
+</body>
+</html>
